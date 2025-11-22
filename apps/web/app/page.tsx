@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
-import { Features } from "@/components/features"
 import { HowItWorks } from "@/components/how-it-works"
 import { Pricing } from "@/components/pricing"
 import { FAQ } from "@/components/faq"
@@ -13,7 +12,6 @@ export default function Page() {
       <div className="flex-1 flex flex-col gap-8 items-center p-4">
         <Navbar />
         <Hero />
-        <div className="py-4" />
         <HowItWorks />
         <div className="py-14" />
         <Pricing />

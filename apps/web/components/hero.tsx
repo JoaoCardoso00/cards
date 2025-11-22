@@ -19,7 +19,7 @@ export function Hero() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-5xl font-serif mb-4"
           >
-            Minimalistic, AI Powered <br /> Flash Cards for you to study
+            Simple, AI Powered <br /> Flash Cards for you to study
           </motion.h1>
 
           <motion.p
@@ -37,7 +37,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="flex gap-4 mt-8"
+          className="flex gap-2 mt-8"
         >
           <Button asChild size="lg">
             <Link href="/get-started">Get Started</Link>

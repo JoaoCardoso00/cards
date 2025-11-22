@@ -5,7 +5,7 @@ import { Play } from "lucide-react"
 
 export function HowItWorks() {
   return (
-    <div className="w-full max-w-7xl">
+    <div className="w-full max-w-7xl border rounded-2xl p-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -22,9 +22,9 @@ export function HowItWorks() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true, margin: "-100px" }}
-        className="relative w-full aspect-video rounded-2xl border overflow-hidden bg-neutral-950 flex items-center justify-center group cursor-pointer"
+        className="relative w-full aspect-video rounded-xl overflow-hidden bg-neutral-950 flex items-center justify-center group cursor-pointer"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-100 transition-opacity duration-300" />
         <motion.div
           whileHover={{ scale: 1.1 }}
           className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full bg-primary"
