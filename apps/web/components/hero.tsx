@@ -28,8 +28,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="text-lg text-neutral-300 font-light max-w-md"
           >
-            Create flashcards in seconds with AI. Upload your notes, paste text, or type your content. We'll generate relevant questions and answers to help you learn faster and remember longer.
+            Paste your notes or upload a document. Our AI generates flashcards automatically. Study with spaced repetition to remember what actually matters.
           </motion.p>
+
         </div>
 
         <motion.div
