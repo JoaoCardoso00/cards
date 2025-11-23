@@ -21,7 +21,7 @@ const links = [
 
 export function Navbar() {
   return (
-    <nav className="w-full border rounded-2xl px-6 py-4.5 flex items-center justify-between max-w-7xl mx-auto">
+    <nav className="w-full rounded-2xl px-6 py-4.5 flex items-center justify-between max-w-6xl mx-auto">
       <div className="flex gap-6 items-center ">
         <Link href="/">
           <h1 className="font-serif text-3xl text-neutral-200 mt-1.5">

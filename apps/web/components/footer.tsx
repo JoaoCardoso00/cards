@@ -33,7 +33,7 @@ export function Footer() {
 
   return (
     <footer className="w-full px-4 pb-4">
-      <div className="max-w-7xl mx-auto border rounded-2xl p-8">
+      <div className="max-w-6xl mx-auto rounded-2xl py-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <motion.div

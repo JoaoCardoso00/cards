@@ -12,7 +12,7 @@ export function CTA() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, margin: "-100px" }}
-      className="w-full mx-auto max-w-7xl text-center"
+      className="w-full mx-auto max-w-6xl text-center"
     >
       <div className="border rounded-2xl p-12 md:p-16 bg-gradient-to-br from-primary/10 to-transparent">
         <motion.h2

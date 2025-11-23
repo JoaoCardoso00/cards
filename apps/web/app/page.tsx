@@ -18,9 +18,9 @@ export default function Page() {
         <div className="py-14" />
         <FAQ />
         <div className="py-8" />
+        <CTA />
+        <div className="py-8" />
       </div>
-      <CTA />
-      <div className="py-4" />
       <Footer />
     </div>
   )

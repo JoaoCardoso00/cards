@@ -9,9 +9,9 @@ export function Hero() {
   const [isFlipped, setIsFlipped] = useState(false)
 
   return (
-    <div className="border rounded-2xl w-full max-w-7xl px-4.5 py-4.5 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="w-full max-w-6xl flex gap-5 justify-between px-6 py-10">
 
-      <div className="col-span-1 md:col-span-2 p-4 flex flex-col justify-between">
+      <div className="flex flex-col justify-between">
         <div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -31,27 +31,29 @@ export function Hero() {
             Paste your notes or upload a document. Our AI generates flashcards automatically. Study with spaced repetition to remember what actually matters.
           </motion.p>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="flex gap-2 mt-8"
+          >
+            <Button asChild size="lg">
+              <Link href="/get-started">Get Started</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="/learn-more">Learn More</Link>
+            </Button>
+          </motion.div>
+
+
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="flex gap-2 mt-8"
-        >
-          <Button asChild size="lg">
-            <Link href="/get-started">Get Started</Link>
-          </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="/learn-more">Learn More</Link>
-          </Button>
-        </motion.div>
       </div>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mr-20">
         <motion.button
           onClick={() => setIsFlipped(!isFlipped)}
-          className="relative w-full h-80 cursor-pointer"
+          className="relative w-80 h-80 cursor-pointer"
         >
           <motion.div
             className="relative w-full h-full"

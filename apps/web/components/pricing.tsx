@@ -52,7 +52,7 @@ const plans = [
 
 export function Pricing() {
   return (
-    <div className="w-full max-w-7xl">
+    <div className="w-full max-w-6xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -73,8 +73,8 @@ export function Pricing() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true, margin: "-100px" }}
             className={`rounded-2xl border p-8 flex flex-col ${plan.highlighted
-                ? "border-primary bg-primary/5 md:scale-105"
-                : "border-neutral-800"
+              ? "border-primary bg-primary/5 md:scale-105"
+              : "border-neutral-800"
               }`}
           >
             <div className="mb-6">
