@@ -4,6 +4,10 @@ import { components } from "./_generated/api";
 import { DataModel } from "./_generated/dataModel";
 import { query } from "./_generated/server";
 import { betterAuth } from "better-auth";
+import { magicLink } from "better-auth/plugins";
+import { Resend } from "resend";
+import { render } from "@react-email/render";
+import MagicLinkEmail from "../emails/magic-link";
 
 const siteUrl = process.env.SITE_URL!;
 
@@ -23,14 +27,21 @@ export const createAuth = (
 		},
 		baseURL: siteUrl,
 		database: authComponent.adapter(ctx),
-		// Configure simple, non-verified email/password to get started
-		emailAndPassword: {
-			enabled: true,
-			requireEmailVerification: false,
-		},
 		plugins: [
 			// The Convex plugin is required for Convex compatibility
 			convex(),
+			magicLink({
+				sendMagicLink: async ({ email, url }) => {
+					const resend = new Resend(process.env.RESEND_API_KEY);
+					const html = await render(MagicLinkEmail({ loginUrl: url }));
+					await resend.emails.send({
+						from: "Cards <cards@joao-cardoso.com>",
+						to: email,
+						subject: "Sign in to Cards",
+						html,
+					});
+				},
+			}),
 		],
 	});
 };
