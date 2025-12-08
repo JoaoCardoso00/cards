@@ -33,7 +33,7 @@ import {
 } from "@workspace/ui/components/sidebar"
 import { Button } from "@workspace/ui/components/button"
 import { Skeleton } from "@workspace/ui/components/skeleton"
-import { Plus, Pencil, Play, LayoutGrid } from "lucide-react"
+import { Plus, Pencil, Play, LayoutGrid, Stars } from "lucide-react"
 
 export default function DeckDetailPage() {
   const params = useParams()
@@ -217,13 +217,11 @@ export default function DeckDetailPage() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  {deck.cardCount > 0 && (
-                    <Button variant="outline" disabled>
-                      <Play className="h-4 w-4 mr-2" />
-                      Study
-                    </Button>
-                  )}
+                <div className="flex items-center gap-4">
+                  <Button variant="outline">
+                    <Stars className="h-4 w-4" />
+                    Assistant
+                  </Button>
                   <Button onClick={() => setIsAddCardOpen(true)}>
                     <Plus className="h-4 w-4" />
                     Add Card

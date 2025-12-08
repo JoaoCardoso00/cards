@@ -54,17 +54,9 @@ export default function DecksPage() {
               </div>
 
               {decks === undefined ? (
-                <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {[...Array(8)].map((_, i) => (
-                    <div key={i} className="aspect-square rounded-xl border p-5 flex flex-col">
-                      <Skeleton className="h-5 w-3/4" />
-                      <Skeleton className="h-4 w-full mt-3" />
-                      <Skeleton className="h-4 w-2/3 mt-1" />
-                      <div className="mt-auto pt-3 border-t flex justify-between">
-                        <Skeleton className="h-3 w-16" />
-                        <Skeleton className="h-3 w-12" />
-                      </div>
-                    </div>
+                    <Skeleton key={i} className="aspect-[4/3] rounded-xl" />
                   ))}
                 </div>
               ) : decks.length === 0 ? (
@@ -82,7 +74,7 @@ export default function DecksPage() {
                   </Button>
                 </div>
               ) : (
-                <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {decks.map((deck) => (
                     <DeckCard key={deck._id} deck={deck} />
                   ))}
