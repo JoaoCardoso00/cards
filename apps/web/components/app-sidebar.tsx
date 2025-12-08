@@ -23,12 +23,12 @@ const data = {
   navMain: [
     {
       title: "Decks",
-      url: "#",
+      url: "/dashboard/decks",
       icon: Layers,
     },
     {
       title: "Analytics",
-      url: "#",
+      url: "/dashboard/analytics",
       icon: ChartBarIcon,
     },
   ],

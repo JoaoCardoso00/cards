@@ -59,6 +59,10 @@ export function NavUser({
                 <span className="text-muted-foreground truncate text-xs">
                   {user.email}
                 </span>
+                <span className="text-muted-foreground truncate text-xs">
+                  free
+                </span>
+
               </div>
               <MoreVertical className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -80,6 +84,7 @@ export function NavUser({
                   <span className="text-muted-foreground truncate text-xs">
                     {user.email}
                   </span>
+
                 </div>
               </div>
             </DropdownMenuLabel>
