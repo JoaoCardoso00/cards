@@ -22,7 +22,7 @@ import { useSession } from "@/lib/auth-hooks"
 const data = {
   navMain: [
     {
-      title: "Assitant",
+      title: "Assistant",
       url: "/dashboard/assistant",
       icon: Stars,
     },
