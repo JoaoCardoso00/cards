@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as aiUsage from "../aiUsage.js";
 import type * as auth from "../auth.js";
 import type * as cards from "../cards.js";
 import type * as decks from "../decks.js";
@@ -20,6 +21,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  aiUsage: typeof aiUsage;
   auth: typeof auth;
   cards: typeof cards;
   decks: typeof decks;

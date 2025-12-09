@@ -15,12 +15,17 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@workspace/ui/components/sidebar"
-import { Camera, ChartBarIcon, Cog, DatabaseIcon, FileIcon, HelpCircle, Layers, Search } from "lucide-react"
+import { Camera, ChartBarIcon, Cog, DatabaseIcon, FileIcon, HelpCircle, Layers, Search, Stars } from "lucide-react"
 import Link from "next/link"
 import { useSession } from "@/lib/auth-hooks"
 
 const data = {
   navMain: [
+    {
+      title: "Assitant",
+      url: "/dashboard/assistant",
+      icon: Stars,
+    },
     {
       title: "Decks",
       url: "/dashboard/decks",
@@ -116,10 +121,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const user = session?.user
     ? {
-        name: session.user.name,
-        email: session.user.email,
-        avatar: session.user.image ?? undefined,
-      }
+      name: session.user.name,
+      email: session.user.email,
+      avatar: session.user.image ?? undefined,
+    }
     : null
 
   return (

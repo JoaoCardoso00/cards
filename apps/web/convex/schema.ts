@@ -92,4 +92,13 @@ export default defineSchema({
     totalCardsStudied: v.number(),
     totalTimeSpent: v.number(),
   }).index("by_user", ["userId"]),
+
+  aiUsage: defineTable({
+    userId: v.string(),
+    messageCount: v.number(),
+    toolCallCount: v.number(),
+    imageUploadCount: v.number(),
+    lastUsedAt: v.number(),
+    createdAt: v.number(),
+  }).index("by_user", ["userId"]),
 });

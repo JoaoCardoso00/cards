@@ -33,8 +33,8 @@ import {
 } from "@workspace/ui/components/field"
 
 const cardSchema = z.object({
-  frontText: z.string().max(2000, "Front text is too long").optional(),
-  backText: z.string().max(2000, "Back text is too long").optional(),
+  frontText: z.string().max(2000, "Front text is too long"),
+  backText: z.string().max(2000, "Back text is too long"),
 }).refine(
   (data) => data.frontText || data.backText,
   { message: "Card must have at least front or back text" }

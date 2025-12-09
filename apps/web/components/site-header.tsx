@@ -27,6 +27,7 @@ const routeTitles: Record<string, string> = {
   "/dashboard": "Dashboard",
   "/dashboard/decks": "Decks",
   "/dashboard/analytics": "Analytics",
+  "/dashboard/assistant": "Assistant",
 }
 
 export function SiteHeader({ breadcrumbs }: SiteHeaderProps) {
