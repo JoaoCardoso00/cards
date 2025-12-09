@@ -111,6 +111,20 @@ export async function POST(req: Request) {
       system: SYSTEM_PROMPT + deckContext,
       messages,
       tools: {
+        testTool: {
+          description: "A test tool that returns a greeting. Use this when the user asks to test tools.",
+          inputSchema: z.object({
+            name: z.string().describe("Name to greet"),
+          }),
+          execute: async ({ name }: { name: string }) => {
+            console.log("Test tool called with:", name)
+            return {
+              success: true,
+              message: `Hello, ${name}! The tool is working correctly.`,
+            }
+          },
+        },
+
         createDeck: {
           description: "Create a new flashcard deck for the user",
           inputSchema: z.object({

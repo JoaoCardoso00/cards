@@ -140,6 +140,7 @@ export default function AssistantPage() {
 
             try {
               const parsed = JSON.parse(data)
+              console.log("Parsed event:", parsed.type, parsed)
 
               // Handle text delta
               if (parsed.type === "text-delta" && parsed.delta) {
@@ -160,14 +161,14 @@ export default function AssistantPage() {
               }
 
               // Handle tool call start
-              if (parsed.type === "tool-call-start") {
+              if (parsed.type === "tool-input-start") {
                 assistantMessage = {
                   ...assistantMessage,
                   toolInvocations: [
                     ...(assistantMessage.toolInvocations || []),
                     {
                       toolName: parsed.toolName,
-                      toolCallId: parsed.id,
+                      toolCallId: parsed.toolCallId,
                       state: "call" as const,
                       args: {},
                     },
@@ -185,11 +186,31 @@ export default function AssistantPage() {
                 }
               }
 
-              // Handle tool call result
-              if (parsed.type === "tool-result") {
+              // Handle tool input available (update args)
+              if (parsed.type === "tool-input-available") {
                 const toolIndex =
                   assistantMessage.toolInvocations?.findIndex(
-                    (t) => t.toolCallId === parsed.id
+                    (t) => t.toolCallId === parsed.toolCallId
+                  ) ?? -1
+
+                if (toolIndex >= 0 && assistantMessage.toolInvocations) {
+                  assistantMessage.toolInvocations[toolIndex] = {
+                    ...assistantMessage.toolInvocations[toolIndex],
+                    args: parsed.input,
+                  }
+                  setMessages((prev) =>
+                    prev.map((m) =>
+                      m.id === assistantMessage.id ? assistantMessage : m
+                    )
+                  )
+                }
+              }
+
+              // Handle tool call result
+              if (parsed.type === "tool-output-available") {
+                const toolIndex =
+                  assistantMessage.toolInvocations?.findIndex(
+                    (t) => t.toolCallId === parsed.toolCallId
                   ) ?? -1
 
                 if (toolIndex >= 0 && assistantMessage.toolInvocations) {
@@ -198,7 +219,7 @@ export default function AssistantPage() {
                     assistantMessage.toolInvocations[toolIndex] = {
                       ...existingTool,
                       state: "result",
-                      result: parsed.result,
+                      result: parsed.output,
                     }
                     setMessages((prev) =>
                       prev.map((m) =>
